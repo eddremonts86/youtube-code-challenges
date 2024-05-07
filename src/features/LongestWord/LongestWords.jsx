@@ -40,18 +40,20 @@ export default function LongestWords() {
   }, [words]);
 
   return (
-    <div className="flex-col">
+    <div className="flex-col my-6">
       <label>
-        <span className="mr-2">Introduce a Words</span>
+        <span className="mr-2 my-3">Introduce a Words</span>
         <input
-          className="rounded-md p-1 w-auto"
+          className="rounded-md p-2 w-auto border-2 border-gray-400 my-3"
           type="text"
+          placeholder="Introduce a sentence!!!"
           onChange={(e) => {
             setWords(e.target.value);
           }}
         ></input>
       </label>
-      <p> Longest words : {longestWords}</p>
+      <p className="text-xl"> Longest words :</p>
+      <p className="text-red-300"> {longestWords}</p>
     </div>
   );
 }
