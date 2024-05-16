@@ -1,12 +1,14 @@
 import "./App.css";
-import LongestWordCase from "./features/LongestWord/LongestWordCase";
-import TicTacToeCaseLayout from "./features/TicTacTocGame/TicTacToeCaseLayout";
+import LongestWord from "./features/LongestWord";
+import TicTacToe from "./features/TicTacTocGame";
 function App() {
   return (
     <>
-      <h1 className=" text-7xl mb-5">Interview Test - from Youtube :) </h1>
-      <LongestWordCase />
-      <TicTacToeCaseLayout />
+      <h1 className=" text-3xl mb-5 sm:text-5xl">
+        Interview Test - from Youtube :){" "}
+      </h1>
+      <LongestWord />
+      <TicTacToe />
     </>
   );
 }

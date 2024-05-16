@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Board from "./Board";
+import Board from "../../LongestWord/components/Board";
 export default function TicTacToe() {
   const [board, setBoard] = useState(3);
 
@@ -17,7 +17,7 @@ export default function TicTacToe() {
             id="tic-tac-toe"
             name="tic-tac-toe"
             placeholder="How is the board? 3x3"
-            className="rounded-md p-2 w-auto border-2 border-gray-400 min-w-96"
+            className="rounded-md p-2 border-2 border-gray-400 w-full sm:w-96"
             value={board}
             onChange={(e) => {
               setBoard(e.target.value);

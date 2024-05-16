@@ -1,11 +1,10 @@
-import TestCaseLayout from "../UI/TestCaseLayout";
-import TestLayout from "../UI/TestLayout";
-
+import { GlobalLayout, CaseLayout, ResolutionBox } from "../../UI";
 import TicTacToe from "./TicTacToe";
+
 export default function TicTacToeCaseLayout() {
   return (
-    <TestLayout>
-      <TestCaseLayout
+    <GlobalLayout>
+      <CaseLayout
         name={"Case 2: Tic tac toe game"}
         description={
           "Given a random grid (3x3) board of a tic-tac-toe game, determine the winnerYAxis. The board is given as a list of lists, where the inner lists represent a row of the board."
@@ -14,11 +13,9 @@ export default function TicTacToeCaseLayout() {
         url={"https://www.youtube.com/watch?v=vweARwTPmg4"}
         urlText={"Video Explanation"}
       />
-
-      <div>
-        <h2 className=" text-xl mb-2">Resolution</h2>
+      <ResolutionBox>
         <TicTacToe />
-      </div>
-    </TestLayout>
+      </ResolutionBox>
+    </GlobalLayout>
   );
 }

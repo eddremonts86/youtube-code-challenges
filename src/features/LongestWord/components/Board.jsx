@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useGameWinner } from "./useGameWinner";
+import { useGameWinner } from "../../TicTacTocGame/hooks/UseGameWinner";
 export default function Board({ boardSize }) {
   const { board, updatePosition, winner, currentPlayer } =
     useGameWinner(boardSize);
