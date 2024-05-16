@@ -21,7 +21,15 @@ export default function Board({ boardSize }) {
   };
 
   const winnerY = () => {
-    return false;
+    const transposedBoard = [];
+    for (let i = 0; i < board.length; i++) {
+      const row = [];
+      for (let j = 0; j < board.length; j++) {
+        row.push(board[j][i]);
+      }
+      transposedBoard.push(row);
+    }
+    return winnerX(transposedBoard);
   };
 
   const winnerDiagonal = () => {
@@ -31,13 +39,12 @@ export default function Board({ boardSize }) {
   const updatePosition = (rowIndex, colIndex) => {
     board[rowIndex][colIndex] = currentPlayer;
     setBoard([...board]);
+    setCurrentPlayer((prev) => prev === "X" ? "O" : "X");
 
-    const hasWinner = winnerX(board) || winnerY() || winnerDiagonal();
+    const hasWinner = winnerX(board) || winnerY(board) || winnerDiagonal(board);
     if (hasWinner) {
       setWinner(currentPlayer);
     }
-
-    setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
   };
 
   return (
@@ -62,7 +69,7 @@ export default function Board({ boardSize }) {
         </div>
       ))}
 
-      {winner && (
+      {board.length > 1 && winner && (
         <p className="text-3xl my-5">
           {" "}
           Congratulations player{" "}
