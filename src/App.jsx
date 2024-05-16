@@ -1,6 +1,7 @@
 import "./App.css";
 import LongestWord from "./features/LongestWord";
 import TicTacToe from "./features/TicTacTocGame";
+import CountDown from "./features/CountDown";
 function App() {
   return (
     <>
@@ -9,6 +10,7 @@ function App() {
       </h1>
       <LongestWord />
       <TicTacToe />
+      <CountDown />
     </>
   );
 }
