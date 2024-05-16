@@ -11,11 +11,13 @@ export default function TicTacToe() {
         </div>
         <div className="flex">
           <input
-            type="text"
+            type="number"
+            min={1}
+            max={10}
             id="tic-tac-toe"
             name="tic-tac-toe"
             placeholder="How is the board? 3x3"
-            className="rounded-md p-2 w-auto border-2 border-gray-400"
+            className="rounded-md p-2 w-auto border-2 border-gray-400 min-w-96"
             value={board}
             onChange={(e) => {
               setBoard(e.target.value);
