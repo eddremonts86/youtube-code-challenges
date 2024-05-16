@@ -6,15 +6,10 @@ export default function TicTacToe() {
   return (
     <>
       <div className="my-6 flex-col">
-        <div>
-          <label
-            htmlFor="tic-tac-toe"
-            className="mr-2"
-          >
-            How many rows and columns?
-          </label>
+        <div className="mr-2 mb-3">
+          <label htmlFor="tic-tac-toe">How many rows and columns?</label>
         </div>
-        <div>
+        <div className="flex">
           <input
             type="text"
             id="tic-tac-toe"
@@ -26,20 +21,20 @@ export default function TicTacToe() {
               setBoard(e.target.value);
             }}
           />
-        </div>
 
-        {board > 0 && (
-          <div className="my-3 mx-0 ">
-            <button
-              className="bg-blue-500 text-white px-5 py-1 rounded-md ml-2"
-              onClick={() => {
-                setBoard(0);
-              }}
-            >
-              Resect
-            </button>
-          </div>
-        )}
+          {board > 0 && (
+            <div className="my-3 mx-0">
+              <button
+                className="bg-blue-500 text-white px-5 py-1 rounded-md ml-2"
+                onClick={() => {
+                  setBoard(0);
+                }}
+              >
+                Resect
+              </button>
+            </div>
+          )}
+        </div>
       </div>
       <div className="mx-3 my-5">
         <Board boardSize={board} />

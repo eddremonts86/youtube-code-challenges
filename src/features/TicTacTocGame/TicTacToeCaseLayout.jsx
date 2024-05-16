@@ -1,5 +1,5 @@
-import TestLayout from "../UI/TestLayout";
 import TestCaseLayout from "../UI/TestCaseLayout";
+import TestLayout from "../UI/TestLayout";
 
 import TicTacToe from "./TicTacToe";
 export default function TicTacToeCaseLayout() {
@@ -8,7 +8,7 @@ export default function TicTacToeCaseLayout() {
       <TestCaseLayout
         name={"Case 2: Tic tac toe game"}
         description={
-          "Given a random grid (3x3) board of a tic-tac-toe game, determine the winner. The board is given as a list of lists, where the inner lists represent a row of the board."
+          "Given a random grid (3x3) board of a tic-tac-toe game, determine the winnerYAxis. The board is given as a list of lists, where the inner lists represent a row of the board."
         }
         example={""}
         url={"https://www.youtube.com/watch?v=vweARwTPmg4"}

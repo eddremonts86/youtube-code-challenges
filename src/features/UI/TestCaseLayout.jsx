@@ -8,7 +8,7 @@ export default function TestCaseLayout({
   urlText,
 }) {
   return (
-    <div className="max-w-96 bg-blue-900 p-6 rounded-md">
+    <div className="w-72 min-w-72 bg-blue-900 p-6 rounded-md">
       <div className="max-w-72 bg-blue-900 rounded-md">
         <div>
           <h2 className="text-xl mb-3">{name}</h2>
