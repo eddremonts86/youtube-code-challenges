@@ -1,32 +1,34 @@
 import { useEffect, useState } from "react";
 
+const countDownTimeOnLocalStorage = () => {
+  const time = localStorage.getItem("countDownTime");
+  if (time) {
+    return parseInt(time);
+  }
+  return null;
+};
 
-const countDownTimeOnLocalStorage =() => {
-    const time = localStorage.getItem("countDownTime");
-    if(time){
-        return parseInt(time);
-    }
-    return 0;
-}
+const formatTime = (time) => {
+  return time.toString().padStart(2, "0");
+};
 
+export default function UseTimer({ countDownTime }) {
+  const initialTime = countDownTimeOnLocalStorage() || countDownTime || 600;
+  const [time, setTime] = useState(initialTime);
 
-export default function CountDown({countDownTime}) {
-    const initialTime = countDownTimeOnLocalStorage() || countDownTime || 600;
-    const [time, setTime] = useState(initialTime);
-    
-    useEffect(() => {
-        const interval = setInterval(() => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime((prevTime) => prevTime - 1);
+    }, 1000);
+    localStorage.setItem("countDownTime", time);
+    return () => clearInterval(interval);
+  }, [time]);
 
-        setTime((prevTime) => prevTime - 1);
-        }, 1000);
-        localStorage.setItem("countDownTime", time);
-        return () => clearInterval(interval);
-    }, []);
-
-
-    const minutes = Math.floor(time / 60);  
-    const seconds = time % 60;
-
-    
-    return {minutes, seconds};
+  const minutes = formatTime(Math.floor(time / 60));
+  const seconds = formatTime(time % 60);
+  if (minutes === "00" && seconds === "00") {
+    setTime(initialTime);
+    localStorage.removeItem("countDownTime");
+  }
+  return { minutes, seconds };
 }

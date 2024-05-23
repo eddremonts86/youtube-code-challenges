@@ -1,7 +1,8 @@
 import "../App.css";
+import Parent from "../features/ContextAPIExample/Parent";
+import CountDown from "../features/CountDown";
 import LongestWord from "../features/LongestWord";
 import TicTacToe from "../features/TicTacTocGame";
-import CountDown from "../features/CountDown";
 import Post from "../features/FetchData/Post";
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
       <LongestWord />
       <TicTacToe />
       <CountDown />
+      <Parent />
     </>
   );
-}
-
+};
