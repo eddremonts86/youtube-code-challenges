@@ -1,38 +1,6 @@
-import { useEffect, useRef, useState } from "react";
-
+import useFetchPost from "./hooks/useFetchPost";
 export default function Post() {
-  const [posts, setPosts] = useState(1);
-  const [postId, setPostId] = useState(null);
-  const abortController = useRef(null);
-  useEffect(() => {
-    const url = postId
-      ? `https://jsonplaceholder.typicode.com/posts/${postId}`
-      : "https://jsonplaceholder.typicode.com/posts";
-
-    const fetchPost = async () => {
-      abortController.current?.abort();
-      abortController.current = new AbortController();
-
-      try {
-        const response = await fetch(url, {
-          signal: abortController.current.signal,
-        });
-        const data = await response.json();
-        setPosts(postId ? [data] : data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchPost();
-
-    return () => {
-      setPosts(null);
-    };
-  }, [postId]);
-
-  const handleClick = () => {
-    setPostId((prev) => prev + 1);
-  };
+  const { posts, handleClick } = useFetchPost();
 
   return (
     <>
